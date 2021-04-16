@@ -103,6 +103,10 @@ async function main() {
     })
     console.log(lineItems.join('\n'))
   }
+  if (!calls.length) {
+    if (debug) console.log("No encrypted calls for this period")
+    return
+  }
   const body = buildTweetBodyFromCalls(calls)
   if (debug) console.log(body)
   if (cliArgs.tweet) {
